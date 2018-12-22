@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-7    -g   -o CMakeFiles/Brave.dir/code/Game/CGame.cpp.o -c /home/cong/Brave/code/Game/CGame.cpp",
+  "file": "/home/cong/Brave/code/Game/CGame.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-7    -g   -o CMakeFiles/Brave.dir/code/main/main.cpp.o -c /home/cong/Brave/code/main/main.cpp",
+  "file": "/home/cong/Brave/code/main/main.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-7    -g   -o CMakeFiles/Brave.dir/code/Timer/CTimer.cpp.o -c /home/cong/Brave/code/Timer/CTimer.cpp",
+  "file": "/home/cong/Brave/code/Timer/CTimer.cpp"
+}
+]

@@ -1,0 +1,1 @@
+/usr/bin/g++-7  -g  -rdynamic CMakeFiles/Brave.dir/code/Game/CGame.cpp.o CMakeFiles/Brave.dir/code/main/main.cpp.o CMakeFiles/Brave.dir/code/Timer/CTimer.cpp.o  -o Brave -lSDL2 -lSDL2_image -lSDL2_mixer -llog4cpp 
