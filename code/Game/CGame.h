@@ -1,48 +1,61 @@
 #ifndef __GAME_H__
 #define __GAME_H__
 
-
-#define __DEBUG__
-
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include "../Timer/CTimer.h"
-
-#ifdef __DEBUG__
-#include <log4cpp/Category.hh>
-#include <log4cpp/PropertyConfigurator.hh>
-#include <iostream>
+#include "../Board/CBoard.h"
+#include "../GUI/CButton.h"
+#include "../CrossFile/CrossFile.h"
+#include "../Block/CBlock.h"
 
 
 using std::cout;
 using std::endl;
-
-
-#endif
-
 using std::string;
+
+
+enum GAME_STATE
+{
+    GAME_STATE_START_PAGE,
+    GAME_STATE_MAIN_MENU,
+    GAME_STATE_GAMING,
+    GAME_STATE_RESUME_MENU,
+    GAME_STATE_COMPLETE,
+    GAME_STATE_ALL
+};
+
+enum MAIN_MENU_OPTIONS
+{
+    MAIN_MENU_OPTION_START,
+    MAIN_MENU_OPTION_RESUME,
+    MAIN_MENU_OPTION_SETTING,
+    MAIN_MENU_OPTION_QUIT,
+    MAIN_MENU_OPTION_ALL
+};
+
+enum RESUME_MENU_OPTIONS
+{
+    RESUME_MENU_OPTION_RESUME,
+    RESUME_MENU_OPTION_SETTING,
+    RESUME_MENU_OPTION_RETURN,
+    RESUME_MENU_OPTION_QUIT
+};
+
 
 
 class CGame
 {
     private:
 
-    #ifdef __DEBUG__
-    string mLogFileName;
-    log4cpp::Category& mMainLog;
-    #endif
 
-
-
+    // Window and Renderer
     SDL_Renderer* mRenderer;        // Main Renderer
     SDL_Window* mWindow;            // Main Window
-
     int mWindowWidth;
     int mWindowHeight;
-
-    bool mQuitGame;                 // Quit Program
-    bool mShouldRedraw;             // Should Redraw?
 
     struct startPageInfo
     {
@@ -53,6 +66,9 @@ class CGame
 
     struct mainMenuInfo
     {
+        CButton startButton;
+        CButton settingButton;
+        CButton quitButton;
     }mMainMenuInfo;
 
     struct gamingInfo
@@ -67,39 +83,19 @@ class CGame
     {
     }mCompleteInfo;
 
-    enum GAME_STATE
-    {
-        GAME_STATE_START_PAGE,
-        GAME_STATE_MAIN_MENU,
-        GAME_STATE_GAMING,
-        GAME_STATE_RESUME_MENU,
-        GAME_STATE_COMPLETE,
-        GAME_STATE_ALL
-    };
 
-    enum MAIN_MENU_OPTIONS
-    {
-        MAIN_MENU_OPTION_START,
-        MAIN_MENU_OPTION_RESUME,
-        MAIN_MENU_OPTION_SETTING,
-        MAIN_MENU_OPTION_QUIT,
-        MAIN_MENU_OPTION_ALL
-    };
-
-    enum RESUME_MENU_OPTIONS
-    {
-        RESUME_MENU_OPTION_RESUME,
-        RESUME_MENU_OPTION_SETTING,
-        RESUME_MENU_OPTION_RETURN,
-        RESUME_MENU_OPTION_QUIT
-    };
-
+    // Flow Control
     GAME_STATE mState;
     MAIN_MENU_OPTIONS mMainMenuOption;
     RESUME_MENU_OPTIONS mResumeMenuOption;
 
+    bool mQuitGame;                 // Quit Program
+    bool mShouldRedraw;             // Should Redraw?
+
+    // Main Timer
     CTimer mMainTimer;
 
+    // Input Handle
     void handleInput(SDL_Event& event);
     void startPageInput(SDL_Event& event);
     void mainMenuInput(SDL_Event& event);
@@ -107,6 +103,7 @@ class CGame
     void gamingInput(SDL_Event& event);
     void completeInput(SDL_Event& event);
 
+    // Data Update
     bool updateData();
     bool startPageUpdateData();
     bool mainMenuUpdateData();
@@ -114,12 +111,18 @@ class CGame
     bool gamingUpdateData();
     bool completeUpdateData();
 
+    // Render
     void redraw();
     void startPageRedraw();
     void mainMenuRedraw();
     void resumeRedraw();
     void gamingRedraw();
     void completeRedraw();
+
+    // Other Game Variable
+    CBoard mBoard;
+
+    CBlock mMainBlock;
 
     public:
 

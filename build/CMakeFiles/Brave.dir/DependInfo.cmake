@@ -4,9 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/cong/Brave/code/Block/CBlock.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/Block/CBlock.cpp.o"
+  "/home/cong/Brave/code/Board/CBoard.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/Board/CBoard.cpp.o"
+  "/home/cong/Brave/code/CrossFile/CrossFile.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/CrossFile/CrossFile.cpp.o"
+  "/home/cong/Brave/code/GUI/CButton.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/GUI/CButton.cpp.o"
   "/home/cong/Brave/code/Game/CGame.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/Game/CGame.cpp.o"
+  "/home/cong/Brave/code/Main/main.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/Main/main.cpp.o"
   "/home/cong/Brave/code/Timer/CTimer.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/Timer/CTimer.cpp.o"
-  "/home/cong/Brave/code/main/main.cpp" "/home/cong/Brave/build/CMakeFiles/Brave.dir/code/main/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

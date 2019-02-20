@@ -14,7 +14,7 @@ CostDataFile:
 Site: cong-Inspiron-5557
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Linux-g++-7
+BuildName: Linux-g++-8
 
 # Subprojects
 LabelsForSubprojects: 
@@ -67,13 +67,13 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
-Compiler: /usr/bin/g++-7
-CompilerVersion: 7.3.0
+Compiler: /usr/bin/g++-8
+CompilerVersion: 8.2.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
