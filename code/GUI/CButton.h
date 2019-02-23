@@ -2,6 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include <string>
 #include <SDL2/SDL_ttf.h>
+#include "../BaseClass/NodeBase.h"
 
 
 #include "../CrossFile/CrossFile.h"
@@ -28,7 +29,7 @@ enum BUTTON_CALLBACK
     BUTTON_CALLBACK_ALL
 };
 
-class CButton
+class CButton : CNodeBase
 {
     private:
 
@@ -37,12 +38,8 @@ class CButton
 
     SDL_Texture* mText[BUTTON_STATE_ALL];
 
-    SDL_Rect mArea;
     SDL_Rect mTextArea;
-
     bool mIsEnabled;
-    //bool mIsToggleState;
-    //bool mIsToggled;
     BUTTON_STATE mState;
 
     bool isMouseInButton(SDL_Point pos);
@@ -66,7 +63,7 @@ class CButton
     void setCallback(BUTTON_CALLBACK callbackType,void* (*callback)(void* param),void* param);
     void handleEvent(SDL_Event event);
     void update();
-    void draw(SDL_Renderer* renderer);
+    void render(SDL_Renderer* renderer);
 
 
     SDL_Rect getArea();

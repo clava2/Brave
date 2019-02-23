@@ -13,7 +13,7 @@ CButton::CButton(SDL_Renderer* renderer)
     }
     if(renderer == NULL)
     {
-        mainLog.info("renderer in CButton Construction is NULL, Returnning");
+        SDL_LogInfo(SDL_LOG_CATEGORY_RENDER, "renderer in CButton Construction is NULL, Returnning");
         return;
     }
     string paths[4] = {"../resources/button/default_normal.png",
@@ -111,7 +111,7 @@ void CButton::handleEvent(SDL_Event event)
     }
 }
 
-void CButton::draw(SDL_Renderer* renderer)
+void CButton::render(SDL_Renderer* renderer)
 {
     SDL_RenderCopy(renderer,mTexture[mState],NULL,&mArea);
     SDL_RenderCopy(renderer,mText[mState],NULL,&mTextArea);
