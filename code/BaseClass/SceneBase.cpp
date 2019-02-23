@@ -26,9 +26,10 @@ bool CSceneBase::constructScene(string configFilePath)
 
     mActive = sceneNode["active"].as<bool>();
 
-    for(CNodeBase* tempNode : mNodeList)
+    CNodeBase* tempNode = new CNodeBase();
+    for(YAML::const_iterator ite = sceneNode["nodes"].begin();ite != sceneNode["node"].end();++ite)
     {
-        tempNode->loadNode(configFilePath);
+        
     }
 }
 

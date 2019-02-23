@@ -43,5 +43,5 @@ bool CNodeBase::setBackground(SDL_Renderer* renderer, string path)
 bool CNodeBase::loadNode(string configFilePath)
 {
     YAML::Node node = YAML::Load(configFilePath);
-    mArea.x = node["Nodes"][]
+    for(YAML::const_iterator ite = node["nodes"])
 }
