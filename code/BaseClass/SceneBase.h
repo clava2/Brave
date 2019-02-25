@@ -16,6 +16,7 @@ class CSceneBase
     public:
     CSceneBase();
     ~CSceneBase();
+    bool loadMedia(SDL_Renderer* renderer);
     bool render();
     bool constructScene(string configFilePath);
 };

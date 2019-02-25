@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/Game/CGame.cpp.o -c /home/cong/Brave/code/Game/CGame.cpp",
+  "file": "/home/cong/Brave/code/Game/CGame.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/Main/main.cpp.o -c /home/cong/Brave/code/Main/main.cpp",
+  "file": "/home/cong/Brave/code/Main/main.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/Timer/CTimer.cpp.o -c /home/cong/Brave/code/Timer/CTimer.cpp",
+  "file": "/home/cong/Brave/code/Timer/CTimer.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/GUI/CButton.cpp.o -c /home/cong/Brave/code/GUI/CButton.cpp",
+  "file": "/home/cong/Brave/code/GUI/CButton.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/CrossFile/CrossFile.cpp.o -c /home/cong/Brave/code/CrossFile/CrossFile.cpp",
+  "file": "/home/cong/Brave/code/CrossFile/CrossFile.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/BaseClass/NodeBase.cpp.o -c /home/cong/Brave/code/BaseClass/NodeBase.cpp",
+  "file": "/home/cong/Brave/code/BaseClass/NodeBase.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/BaseClass/SceneBase.cpp.o -c /home/cong/Brave/code/BaseClass/SceneBase.cpp",
+  "file": "/home/cong/Brave/code/BaseClass/SceneBase.cpp"
+},
+{
+  "directory": "/home/cong/Brave/build",
+  "command": "/usr/bin/g++-8    -g   -o CMakeFiles/Brave.dir/code/SceneTree/SceneTree.cpp.o -c /home/cong/Brave/code/SceneTree/SceneTree.cpp",
+  "file": "/home/cong/Brave/code/SceneTree/SceneTree.cpp"
+}
+]

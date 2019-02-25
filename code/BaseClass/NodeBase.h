@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <string>
+#include <yaml-cpp/yaml.h>
 
 using std::string;
 
@@ -11,15 +12,15 @@ class CNodeBase
     protected:
     SDL_Rect mArea;             // 节点位置
     string   mNodeName;         // 节点名称
-    SDL_Texture* mBackground;   // 背景纹理
+    bool     mActive;           //是否激活
     public:
     CNodeBase();
     ~CNodeBase();
 
-    protected:
-    void move(double direction,double speed);
-    bool setBackground(SDL_Renderer* renderer, string filePath);
-    bool loadNode(string configFilePath);
+    public:
+    virtual void move(double direction,double speed);
+    virtual bool loadNode(string nodeID,YAML::Node subNodes);
+    virtual bool loadMedia(SDL_Renderer* renderer);
     // bool onKeyboardDown(int key);
     // bool onMouseKeyDown(int key);
 };

@@ -1,0 +1,5 @@
+# First Scene
+first scene:
+  parent: root
+  scene content path: ../resources/configures/first scene.yaml
+

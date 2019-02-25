@@ -1,12 +1,12 @@
-#define __DEBUG__
+#ifndef __CROSS_FILE_H__
+#define __CROSS_FILE_H__
 
-#ifdef __DEBUG__
-#include <log4cpp/Category.hh>
-#include <log4cpp/PropertyConfigurator.hh>
-#include <iostream>
-#endif
+#include <yaml-cpp/yaml.h>
+#include "../BaseClass/NodeBase.h"
+#include "../GUI/CButton.h"
 
-// Debug
-#ifdef __DEBUG__
-extern log4cpp::Category& mainLog;
+
+CNodeBase* getNodePointer(string nodeType);
+
+
 #endif

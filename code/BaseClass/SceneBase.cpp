@@ -29,7 +29,14 @@ bool CSceneBase::constructScene(string configFilePath)
     CNodeBase* tempNode = new CNodeBase();
     for(YAML::const_iterator ite = sceneNode["nodes"].begin();ite != sceneNode["node"].end();++ite)
     {
-        
+        tempNode->loadNode(ite->first.as<string>(),ite->second);
     }
 }
 
+bool CSceneBase::loadMedia(SDL_Renderer* renderer)
+{
+    for(CNodeBase* tempNode : mNodeList)
+    {
+        tempNode->loadMedia(renderer);
+    }
+}

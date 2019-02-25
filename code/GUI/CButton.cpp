@@ -31,17 +31,14 @@ bool CButton::setTexture(SDL_Renderer* renderer,BUTTON_STATE state,string path)
     mArea.h = tempSurface->h;
     if(tempSurface == NULL)
     {
-        mainLog.info("Error When Loading From Image FIle" + path);
         return false;
     }
     mTexture[state] = SDL_CreateTextureFromSurface(renderer,tempSurface);
     SDL_FreeSurface(tempSurface);
     if(mTexture[state] == NULL)
     {
-        mainLog.info("Error When Creating Texture From Surface" + path);
         return false;
     }
-    mainLog.info("Loading "+ path + " Successfully!");
     return true;
 }
 
@@ -55,18 +52,15 @@ bool CButton::setTextures(SDL_Renderer* renderer,string* path)
         mArea.w = tempSurface->w;
         if(tempSurface == NULL)
         {
-            mainLog.info("Loading Surface From File "+path[i] + " Failed!");
             return false;
         }
         mTexture[i] = SDL_CreateTextureFromSurface(renderer,tempSurface);
         SDL_FreeSurface(tempSurface);
         if(mTexture[i] == NULL)
         {
-            mainLog.info("Creating Texture From File " + path[i] + "Failed!");
             return false;
         }
     }
-    mainLog.info("Setting Texture Successfully!");
     return true;
 }
 
@@ -155,7 +149,6 @@ void CButton::setText(SDL_Renderer* renderer,string* text)
     TTF_Font* font = TTF_OpenFont("../resources/font/button_font.otf",36);
     if (font == NULL)
     {
-        mainLog.error(string("Error When Opening Font!") + SDL_GetError());
         return;
     }
     SDL_Color fg = {0x00,0x00,0x00,0xff};
@@ -178,7 +171,6 @@ void CButton::setText(SDL_Renderer* renderer,string text)
     TTF_Font* font = TTF_OpenFont("../resources/font/button_font.otf",36);
     if (font == NULL)
     {
-        mainLog.error(string("Error When Opening Font!") + SDL_GetError());
         return;
     }
     SDL_Color fg = {0x00,0x00,0x00,0xff};

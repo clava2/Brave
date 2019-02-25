@@ -1,3 +1,6 @@
+#ifndef __BUTTON_H__
+#define __BUTTON_H__
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <string>
@@ -29,25 +32,16 @@ enum BUTTON_CALLBACK
     BUTTON_CALLBACK_ALL
 };
 
-class CButton : CNodeBase
+class CButton : public CNodeBase
 {
     private:
-
-
     SDL_Texture* mTexture[BUTTON_STATE_ALL];
-
     SDL_Texture* mText[BUTTON_STATE_ALL];
-
     SDL_Rect mTextArea;
-    bool mIsEnabled;
     BUTTON_STATE mState;
-
     bool isMouseInButton(SDL_Point pos);
-
     void* (*mCallbacks[BUTTON_CALLBACK_ALL])(void* param);
-
     void* mCallbackParams[BUTTON_CALLBACK_ALL];
-
     BUTTON_STATE mLastState;
 
     public:
@@ -68,3 +62,5 @@ class CButton : CNodeBase
 
     SDL_Rect getArea();
 };
+
+#endif

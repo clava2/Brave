@@ -9,6 +9,7 @@ using std::endl;
 
 CGame::CGame()
 {
+    mSceneTree = new CSceneTree();
     if(SDL_WasInit(SDL_INIT_EVERYTHING))
     {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "SDL Was not initialized, SDL_GetError() = %s",SDL_GetError());
@@ -35,7 +36,7 @@ CGame::~CGame()
 
 bool CGame::init(string title,int x,int y,int w,int h)
 {
-    mCommonConfigInput  = YAML::LoadFile("common config.yaml");
+    mCommonConfigInput  = YAML::LoadFile("../resources/configures/common config.yaml");
 
     if(mMainWindow)
     {
@@ -64,18 +65,25 @@ bool CGame::init(string title,int x,int y,int w,int h)
 
 bool CGame::loadScene()
 {
-    mSceneConfigInput = YAML::LoadFile("scene config.yaml");
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"scene tree path: %s",
+                        mCommonConfigInput["scene tree path"].as<string>().c_str());
+    mSceneConfigInput = YAML::LoadFile(mCommonConfigInput["scene tree path"].as<string>());
 
     CSceneTreeNode* newNode = new CSceneTreeNode();
     CSceneBase*     tempScene = new CSceneBase();
     for(YAML::const_iterator ite = mSceneConfigInput.begin();ite != mSceneConfigInput.end();++ite)
     {
         newNode->mSceneName = ite->first.as<string>();
-        newNode->mParent    = mSceneTree->searchTreeNode((ite->second)["parent"].as<string>);
-        tempScene->constructScene((*ite).second["scene content"].as<string>());
+        newNode->mParent    = mSceneTree->searchTreeNode((ite->second)["parent"].as<string>());
+        tempScene->constructScene((*ite).second["scene content path"].as<string>());
+        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Complete constructing scene: ",newNode->mSceneName.c_str());
+        newNode->mParent->mChildNode.push_back(newNode);
     }
+    return true;
 }
 
 bool CGame::loadMedia()
 {
+    mSceneTree->loadMedia(mRenderer);
+    return true;
 }

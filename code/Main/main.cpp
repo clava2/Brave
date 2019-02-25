@@ -15,6 +15,11 @@ using std::string;
 int main(int argc,char* argv[])
 {
     CGame game;
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Initializing Game...");
+    game.init();
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Loading Scenes...");
     game.loadScene();
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Loading Media...");
+    game.loadMedia();
     return 0;
 }

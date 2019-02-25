@@ -20,7 +20,7 @@ typedef struct CSceneTreeNode
 class CSceneTree
 {
     private:
-    CSceneTreeNode mRoot;
+    CSceneTreeNode* mRoot;
     CSceneTreeNode* mCurrentNode;
 
     public:
@@ -32,7 +32,7 @@ class CSceneTree
     CSceneBase* getCurrentScene();
     bool back();
     bool enter(string sceneName);
-    bool loadMedia();
+    bool loadMedia(SDL_Renderer* renderer);
 };
 
 

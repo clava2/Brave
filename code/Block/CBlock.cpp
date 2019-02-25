@@ -38,7 +38,6 @@ void CBlock::handleInput(SDL_Event& event)
         {
             char info[100];
             sprintf(info,"mBlockType = %d,mBlockState = %d,mSmallMap[mBlockType][mState] = %d\n",mBlockType,mBlockState,mSmallMap[mBlockType][mBlockState]);
-            mainLog.info(info);
             mBlockState = (mBlockState + 1)%4;
         }
     }

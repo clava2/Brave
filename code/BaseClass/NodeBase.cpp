@@ -12,36 +12,18 @@ CNodeBase::CNodeBase()
 
 CNodeBase::~CNodeBase()
 {
-    if(mBackground)
-    {
-        SDL_DestroyTexture(mBackground);
-    }
 }
 
 void CNodeBase::move(double direction,double speed)
 {
 }
 
-bool CNodeBase::setBackground(SDL_Renderer* renderer, string path)
+bool CNodeBase::loadNode(string nodeID, YAML::Node subNodes)
 {
-    SDL_Surface* tempSurface = NULL;
-    tempSurface = IMG_Load(path.c_str());
-    if(tempSurface == NULL)
-    {
-        SDL_LogWarn(SDL_LOG_CATEGORY_INPUT,"Error When Loading background, path = %s", path.c_str());
-        return false;
-    }
-    mBackground = SDL_CreateTextureFromSurface(renderer, tempSurface);
-    if(mBackground == NULL)
-    {
-        SDL_LogWarn(SDL_LOG_CATEGORY_INPUT,"Error When creating Texture, path = %s",path.c_str());
-    }
-    SDL_FreeSurface(tempSurface);
-    return true;
+    mNodeName = nodeID;
 }
 
-bool CNodeBase::loadNode(string configFilePath)
+bool CNodeBase::loadMedia(SDL_Renderer* renderer)
 {
-    YAML::Node node = YAML::Load(configFilePath);
-    for(YAML::const_iterator ite = node["nodes"])
+    return false;
 }
