@@ -8,6 +8,8 @@ CMakeFiles/Brave.dir/code/BaseClass/SceneBase.cpp.o
  /home/cong/Brave/code/BaseClass/NodeBase.h
  /home/cong/Brave/code/BaseClass/SceneBase.cpp
  /home/cong/Brave/code/BaseClass/SceneBase.h
+ /home/cong/Brave/code/CrossFile/CrossFile.h
+ /home/cong/Brave/code/GUI/CButton.h
 CMakeFiles/Brave.dir/code/CrossFile/CrossFile.cpp.o
  /home/cong/Brave/code/BaseClass/NodeBase.h
  /home/cong/Brave/code/CrossFile/CrossFile.cpp
@@ -21,18 +23,26 @@ CMakeFiles/Brave.dir/code/GUI/CButton.cpp.o
 CMakeFiles/Brave.dir/code/Game/CGame.cpp.o
  /home/cong/Brave/code/BaseClass/NodeBase.h
  /home/cong/Brave/code/BaseClass/SceneBase.h
+ /home/cong/Brave/code/CrossFile/CrossFile.h
+ /home/cong/Brave/code/GUI/CButton.h
  /home/cong/Brave/code/Game/CGame.cpp
  /home/cong/Brave/code/Game/CGame.h
  /home/cong/Brave/code/SceneTree/SceneTree.h
+ /home/cong/Brave/code/Timer/CTimer.h
 CMakeFiles/Brave.dir/code/Main/main.cpp.o
  /home/cong/Brave/code/BaseClass/NodeBase.h
  /home/cong/Brave/code/BaseClass/SceneBase.h
+ /home/cong/Brave/code/CrossFile/CrossFile.h
+ /home/cong/Brave/code/GUI/CButton.h
  /home/cong/Brave/code/Game/CGame.h
  /home/cong/Brave/code/Main/main.cpp
  /home/cong/Brave/code/SceneTree/SceneTree.h
+ /home/cong/Brave/code/Timer/CTimer.h
 CMakeFiles/Brave.dir/code/SceneTree/SceneTree.cpp.o
  /home/cong/Brave/code/BaseClass/NodeBase.h
  /home/cong/Brave/code/BaseClass/SceneBase.h
+ /home/cong/Brave/code/CrossFile/CrossFile.h
+ /home/cong/Brave/code/GUI/CButton.h
  /home/cong/Brave/code/SceneTree/SceneTree.cpp
  /home/cong/Brave/code/SceneTree/SceneTree.h
 CMakeFiles/Brave.dir/code/Timer/CTimer.cpp.o

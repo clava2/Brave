@@ -25,5 +25,6 @@ bool CNodeBase::loadNode(string nodeID, YAML::Node subNodes)
 
 bool CNodeBase::loadMedia(SDL_Renderer* renderer)
 {
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Entered CNodeBase::loadMedia()");
     return false;
 }

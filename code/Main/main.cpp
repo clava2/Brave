@@ -21,5 +21,7 @@ int main(int argc,char* argv[])
     game.loadScene();
     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Loading Media...");
     game.loadMedia();
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Entering Main loop...");
+    game.mainLoop();
     return 0;
 }

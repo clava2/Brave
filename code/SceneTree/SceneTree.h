@@ -29,6 +29,7 @@ class CSceneTree
     ~CSceneTree();
 
     void addChild(string sceneName, CSceneTreeNode* child);
+    void setRootScene(string rootScenePath);
     CSceneBase* getCurrentScene();
     bool back();
     bool enter(string sceneName);

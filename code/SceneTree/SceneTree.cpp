@@ -14,7 +14,15 @@ CSceneTree::CSceneTree()
     mRoot->mParent = NULL;
     mRoot->mSceneName = "root";
     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"mRoot-> mSceneName = %s",mRoot->mSceneName.c_str());
+    CSceneBase* tempScene = new CSceneBase();
+    mRoot->mScene = tempScene;
     mCurrentNode = mRoot;
+}
+
+void CSceneTree::setRootScene(string rootScenePath)
+{
+    cout << "mRoot->mScene:" << mRoot->mScene << endl;
+    mRoot->mScene->constructScene(rootScenePath);
 }
 
 CSceneTree::~CSceneTree()
@@ -31,9 +39,9 @@ CSceneTreeNode* CSceneTree::searchTreeNode(string sceneName)
     {
         tempNode = nodeStack.top();
         nodeStack.pop();
-        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"searching node : %s",tempNode->mSceneName.c_str());
         if(tempNode->mSceneName == sceneName)
         {
+            SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Found scene node: %s",sceneName.c_str());
             return tempNode;
         }
         for(CSceneTreeNode* childNode: tempNode->mChildNode)
@@ -78,6 +86,7 @@ bool CSceneTree::enter(string sceneName)
 
 bool CSceneTree::loadMedia(SDL_Renderer* renderer)
 {
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Entered CSceneTree::loadMedia()");
     stack<CSceneTreeNode*> nodeStack;
     nodeStack.push(mRoot);
     CSceneTreeNode* tempNode = NULL;
@@ -85,6 +94,7 @@ bool CSceneTree::loadMedia(SDL_Renderer* renderer)
     {
         tempNode = nodeStack.top();
         nodeStack.pop();
+        cout << tempNode->mScene << endl;
         tempNode->mScene->loadMedia(renderer);
         for(CSceneTreeNode* childNode: tempNode->mChildNode)
         {

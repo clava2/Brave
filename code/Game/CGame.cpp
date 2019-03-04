@@ -67,23 +67,54 @@ bool CGame::loadScene()
 {
     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"scene tree path: %s",
                         mCommonConfigInput["scene tree path"].as<string>().c_str());
-    mSceneConfigInput = YAML::LoadFile(mCommonConfigInput["scene tree path"].as<string>());
+    mSceneConfigInput = YAML::LoadFile(configurePathPrefix + mCommonConfigInput["scene tree path"].as<string>());
 
-    CSceneTreeNode* newNode = new CSceneTreeNode();
-    CSceneBase*     tempScene = new CSceneBase();
+    mSceneTree->setRootScene(mSceneConfigInput["root"]["scene content path"].as<string>());
     for(YAML::const_iterator ite = mSceneConfigInput.begin();ite != mSceneConfigInput.end();++ite)
     {
+        if(ite->first.as<string>() == "root")
+        {
+            continue;
+        }
+        CSceneTreeNode* newNode = new CSceneTreeNode();
+        CSceneBase*     tempScene = new CSceneBase();
         newNode->mSceneName = ite->first.as<string>();
         newNode->mParent    = mSceneTree->searchTreeNode((ite->second)["parent"].as<string>());
+        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"searched scene node: %s, constructing scene throught file: %s ",
+                        (ite->second)["parent"].as<string>().c_str(),(ite->second)["scene content path"].as<string>().c_str());
         tempScene->constructScene((*ite).second["scene content path"].as<string>());
-        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Complete constructing scene: ",newNode->mSceneName.c_str());
+        newNode->mScene = tempScene;
+        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Complete constructing scene: %s",newNode->mSceneName.c_str());
         newNode->mParent->mChildNode.push_back(newNode);
+        mSceneTree->addChild((ite->second)["parent"].as<string>(),newNode);
     }
     return true;
 }
 
 bool CGame::loadMedia()
 {
+    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,"Entered in CGame::loadMedia()");
     mSceneTree->loadMedia(mRenderer);
     return true;
+}
+
+void CGame::mainLoop()
+{
+    while(!mQuit)
+    {
+        processInput();
+        if(mMainTimer.getCurrentTick() > 1./mUpdateRate)
+        {
+            mMainTimer.start();
+            update();
+        }
+        render();
+    }
+}
+
+void CGame::update()
+{
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    mSceneTree->getCurrentScene()->handleInput(&event);
 }

@@ -7,6 +7,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <yaml-cpp/yaml.h>
 #include "../SceneTree/SceneTree.h"
+#include "../CrossFile/CrossFile.h"
+#include "../Timer/CTimer.h"
 
 class CGame
 {
@@ -20,11 +22,17 @@ class CGame
     SDL_Renderer*   mRenderer;
     CSceneTree*     mSceneTree;
 
+    CTimer          mMainTimer;
+
     YAML::Node      mCommonConfigInput;
     YAML::Emitter   mCommonConfigOutput;
 
     YAML::Node      mSceneConfigInput;
     YAML::Emitter   mSceneConfigOutput;
+
+    Uint64          mUpdateRate;
+
+    bool            mQuit;
 
     public:
     CGame();
@@ -34,10 +42,9 @@ class CGame
     bool loadScene();
     bool loadMedia();
     void mainLoop();
-
-    private:
     void render();
     void update();
+    void processInput();
 };
 
 
